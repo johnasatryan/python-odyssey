@@ -1,7 +1,9 @@
-# Python Classwork Repository
+# Backend Development Classwork Repository
 
 ## Overview
-This repository contains classwork materials, exercises, and additional resources for the Python programming course at Picsart Academy. It is structured to support learning and provide a centralized location for all course-related code and documentation.
+This repository contains classwork materials, exercises, and additional resources for the Backend Development course at Picsart Academy. It is structured to support learning and provide a centralized location for all course-related code and documentation.
+
+## Group: Backend-Afternoon / Backend-Renaissance
 
 ## Getting Started
 
@@ -11,10 +13,10 @@ This repository contains classwork materials, exercises, and additional resource
 
 ### Installation
 Clone the repository to your local machine using the following command:
-git clone https://github.com/johnasatryan/python-odyssey.git
+https://github.com/johnasatryan/backend-renaissance.git
 
 Navigate to the cloned directory:
-cd python-odyssey
+npm install 
 
 
 ## Repository Structure
@@ -32,4 +34,5 @@ Students are encouraged to contribute to the repository by submitting pull reque
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Contact
-- Course Website: [Picsart Academy](https://www.picsartacadmey.am/python/)
+- Course Website: [Picsart Academy](https://picsartacademy.am/javascript)
+
