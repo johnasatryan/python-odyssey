@@ -1,4 +1,4 @@
-# Python Classwork Repository
+# Python Backend Repository
 
 ## Overview
 This repository contains classwork materials, exercises, and additional resources for the Python programming course at Picsart Academy. It is structured to support learning and provide a centralized location for all course-related code and documentation.
