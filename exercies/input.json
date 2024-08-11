@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Bob",
+    "age": 22,
+    "isStudent": false,
+    "classes": ["Python", "Java", "CPP"]
+  },
+  {
+    "name": "James",
+    "age": 30,
+    "isStudent": true,
+    "classes": ["Python"]
+  }
+]
