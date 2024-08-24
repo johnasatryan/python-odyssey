@@ -215,29 +215,37 @@
 
 
 
-def decorator(fn):
-  def wrapper(*args):
-    print(args)
-    print(fn.__name__)
-    return fn(*args)
-  return wrapper
+# def decorator(fn):
+#   def wrapper(*args):
+#     print(args)
+#     print(fn.__name__)
+#     return fn(*args)
+#   return wrapper
 
 
-def foo(x, y):
-  print(x + y)
+# def foo(x, y):
+#   print(x + y)
 
 
-foo(1, 3)
-foo = decorator(foo)
-foo(1, 3)
+# foo(1, 3)
+# foo = decorator(foo)
+# foo(1, 3)
 
-def chlp(x):
-  return x + 132
-
-
-chlp = decorator(chlp)
-
-chlp(3)
+# def chlp(x):
+#   return x + 132
 
 
+# chlp = decorator(chlp)
+
+# chlp(3)
+
+
+def bar(ls = []):
+  ls.append(("C++", "Java"))
+  print(ls)
+  return ls
+
+bar()
+ls = bar(['Python'])
+bar()
 
