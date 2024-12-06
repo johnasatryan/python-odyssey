@@ -1,14 +1,1 @@
-{
-  "Anun": {
-    "username": "Anun",
-    "password": "$5$rounds=535000$IrexdUw6LJ3/zFMa$l.UmkHtqKnA7xBJwazW0Umu7EWvTbODE8wUXTnFttu0"
-  },
-  "Petros": {
-    "username": "Petros",
-    "password": "$5$rounds=535000$R.toZPXHY8vRTuTk$.xWqwgsqG9SPUCnwD1ddejRIk.DjRAGG7JvpSx5.w.C"
-  },
-  "John": {
-    "username": "John",
-    "password": "$5$rounds=535000$maqAKJzNv1T5tRyu$uzQDAqQ61BJEmWJpUS0mdzqjfYbwgTzmARz9LTwPiLA"
-  }
-}
+{}
