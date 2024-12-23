@@ -1,7 +1,8 @@
-from .auth import router as auth_router
-from .orders import router as orders_router
-from .products import router as products_router
-from .users import router as users_router
+from routers.auth import router as auth_router
+from routers.orders import router as orders_router
+from routers.products import router as products_router
+from routers.users import router as users_router
+
 
 
 __all__ = [

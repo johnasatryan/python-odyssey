@@ -1,7 +1,7 @@
-from .user import User
-from .product import Product
-from .order import Order, OrderItem
-from .db import Base
+from models.user import User
+from models.product import Product
+from models.order import Order, OrderItem
+from models.db import Base
 
 __all__ = [
     "User",
