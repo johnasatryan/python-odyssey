@@ -1,22 +1,20 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from schemas.product import ProductCreate, ProductResponse
+from helpers.dependencies import get_current_user
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
-from typing import List
-from schemas.product import ProductCreate, ProductResponse
 from models.product import Product
-from models.db import get_db
-from helpers.dependencies import get_current_user
+from database.db import get_db
+from typing import List
 
 router = APIRouter(prefix="/products", tags=["Products"])
 
-# Create a new product
 @router.post("/", response_model=ProductResponse, status_code=status.HTTP_201_CREATED)
 async def create_product(
     product: ProductCreate,
     db: AsyncSession = Depends(get_db),
-    current_user=Depends(get_current_user),  # Ensure the user is authenticated
+    current_user=Depends(get_current_user),  
 ):
-    # Ensure only admins can create products
     if not current_user.is_admin:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,

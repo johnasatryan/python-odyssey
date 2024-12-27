@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import AsyncSession
 from helpers.utils import pwd_context, create_access_token
-from models.db import get_db
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import text
+from database.db import get_db
+
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
-
 
 async def authenticate_user(email: str, password: str, db: AsyncSession):
     query = await db.execute(text('SELECT * FROM users WHERE email = :email'), {"email": email})
@@ -13,7 +13,6 @@ async def authenticate_user(email: str, password: str, db: AsyncSession):
     if user and pwd_context.verify(password, user.password):
         return user
     return None
-
 
 @router.post("/login")
 async def login(loginUser: dict, db: AsyncSession = Depends(get_db)):

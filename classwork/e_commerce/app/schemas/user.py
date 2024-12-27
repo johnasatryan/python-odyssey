@@ -1,7 +1,6 @@
 from typing import Optional
-from pydantic import BaseModel, EmailStr, Field, field_validator
-import re
-from fastapi import HTTPException
+from pydantic import BaseModel, EmailStr, Field
+
 
 class UserCreate(BaseModel):
   username: str = Field(..., min_length=3, max_length=50)
@@ -11,16 +10,6 @@ class UserCreate(BaseModel):
   image_url: Optional[str] = Field(None)
   is_admin: bool = Field(default=False)
 
-  # @field_validator('password')
-  # @classmethod
-  # def validate_password(cls, value):
-  #   if not re.search(r"[A-Za-z]", value):
-  #     raise ValueError("Password must contain at least one letter.")
-  #   if not re.search(r"\d", value):
-  #     raise HTTPException(status_code=400, detail="Password must contain at least one number.")
-  #   if not re.search(r"[!@#$%^&*(),.?\":{}|<>]", value):
-  #     raise ValueError("Password must contain at least one special character.")
-  #   return value
   
 class UserResponse(BaseModel):
   id: int

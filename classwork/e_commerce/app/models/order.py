@@ -1,8 +1,7 @@
 from sqlalchemy import Column, Integer, Float, String, ForeignKey, TIMESTAMP
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from .db import Base
-
+from models.base import Base
 
 class Order(Base):
     __tablename__ = "orders"
@@ -13,7 +12,6 @@ class Order(Base):
     status = Column(String(20), nullable=False, default="PENDING")
     created_at = Column(TIMESTAMP, server_default=func.now())
 
-    # Relationships
     items = relationship("OrderItem", back_populates="order")
 
 
@@ -26,6 +24,6 @@ class OrderItem(Base):
     quantity = Column(Integer, nullable=False)
     price = Column(Float, nullable=False)
 
-    # Relationships
+  
     order = relationship("Order", back_populates="items")
     product = relationship("Product")

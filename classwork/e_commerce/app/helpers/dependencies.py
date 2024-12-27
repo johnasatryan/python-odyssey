@@ -1,6 +1,6 @@
 from fastapi import Depends, HTTPException, status, Header
 from sqlalchemy.ext.asyncio import AsyncSession
-from models.db import get_db
+from database.db import get_db
 from models.user import User
 from helpers.utils import verify_access_token
 from fastapi.security import OAuth2PasswordBearer
@@ -20,17 +20,11 @@ async def get_current_user(
 
     payload = verify_access_token(token)
     if not payload:
-        
         raise credentials_exception
-
     user_id: int = int(payload.get("sub")) 
-  
     if not user_id:
         raise credentials_exception
-
     user = await db.get(User, user_id)
-    print(user)   
     if not user:
-        # best practice to use another exception
         raise credentials_exception
     return user

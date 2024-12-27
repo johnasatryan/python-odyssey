@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, Float, Boolean, TIMESTAMP
 from sqlalchemy.sql import func
-from .db import Base
+from models.base import Base
 
 
 class Product(Base):

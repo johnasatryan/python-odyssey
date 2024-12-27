@@ -1,7 +1,7 @@
 from models.user import User
 from models.product import Product
 from models.order import Order, OrderItem
-from models.db import Base
+from models.base import Base
 
 __all__ = [
     "User",
@@ -10,3 +10,5 @@ __all__ = [
     "OrderItem",
     "Base"
 ]
+
+

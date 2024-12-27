@@ -1,20 +1,15 @@
-from fastapi import FastAPI
+from routers import auth_router, products_router, users_router, orders_router
 from contextlib import asynccontextmanager
-import uvicorn
-from routers import auth_router, users_router, products_router, orders_router
-from models import db, OrderItem, Product, Order, User
+from database.db import create_db, create_tables
+from fastapi import FastAPI
 from config import settings
+import uvicorn
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    async with db.engine.begin() as conn:
-        # Create all tables
-        await conn.run_sync(User.metadata.create_all)
-        await conn.run_sync(Product.metadata.create_all)
-        await conn.run_sync(Order.metadata.create_all)
-        await conn.run_sync(OrderItem.metadata.create_all)
-    yield  # Application runs here
-    await db.engine.dispose()
+    await create_db()
+    await create_tables()
+    yield
 
 
 app = FastAPI(lifespan=lifespan)
@@ -25,4 +20,4 @@ app.include_router(products_router)
 app.include_router(orders_router)
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=settings.app_port, reload=True)
+    uvicorn.run("app:app", port=settings.app_port, reload=True)

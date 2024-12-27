@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.future import select
-from typing import List
 from schemas.order import OrderCreate, OrderResponse
-from models.order import Order, OrderItem
-from models.product import Product
-from models.db import get_db
 from helpers.dependencies import get_current_user
+from sqlalchemy.ext.asyncio import AsyncSession
+from models.order import Order, OrderItem
+from sqlalchemy.future import select
+from models.product import Product
+from database.db import get_db
+from typing import List
 
 router = APIRouter(prefix="/orders", tags=["Orders"])
 
@@ -33,7 +33,6 @@ async def create_order(
                 detail=f"Product with ID {item.product_id} is not active.",
             )
         total_price += product.price * item.quantity
-        print('>>>>>>>>>>', total_price)
 
     # Create the order
     new_order = Order(
