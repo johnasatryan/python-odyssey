@@ -114,6 +114,8 @@ venv.bak/
 .spyproject
 .DS_Store
 .env
+.vscode
+
 # Rope project settings
 .ropeproject
 
