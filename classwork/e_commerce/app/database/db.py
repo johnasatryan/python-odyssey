@@ -27,7 +27,6 @@ async def create_db():
     print(f"Error during database creation: {e}")
     await engine.dispose()
 
-
 async def create_tables():
   try:
     async with engine.begin() as conn:
